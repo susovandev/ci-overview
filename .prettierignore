@@ -1,0 +1,18 @@
+# Ignore all files in node_modules directory
+/node_modules/**/*
+
+# Ignore all files in .git directory
+/.git/**/*
+
+# Ignore all files in dist directory
+/dist/**/*
+
+# Ignore all files with .log extension
+*.log
+
+# Ignore package.json 
+package-lock.json
+package.json
+
+/.husky/**/*
+

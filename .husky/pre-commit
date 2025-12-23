@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+npm run format:check
+npm run format:fix
+npm run lint:check
+npm run test
+
+npm run dev
+npm run build
+npm run start
