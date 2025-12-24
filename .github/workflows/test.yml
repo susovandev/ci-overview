@@ -1,26 +1,32 @@
-name: Testing With Jest & supertest
+name: Testing With Jest & Supertest
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    env:
+      NODE_ENV: test
+
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-      - name: Node Setup
+      - uses: actions/checkout@v4
+
+      - name: Verify NODE_ENV
+        run: echo "NODE_ENV=$NODE_ENV"
+
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '20'
+          cache: 'npm'
+
       - name: Install Dependencies
         run: npm ci
-      - name: Change Env to Test
-        run: echo "NODE_ENV=test" >> $GITHUB_ENV
+
       - name: Run Tests
-        run: npm run test
+        run: npm test
