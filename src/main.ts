@@ -3,8 +3,8 @@ import { env } from './config/env.config';
 import connectDB from './db/db';
 import Logger from './lib/logger';
 
-const port = env.PORT;
-const node_env = env.NODE_ENV;
+const port = env!.PORT;
+const node_env = env!.NODE_ENV;
 
 connectDB()
 	.then(() => {
