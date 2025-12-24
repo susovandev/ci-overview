@@ -13,12 +13,8 @@ const envSchema = z.object({
 
 const _env = envSchema.safeParse(process.env);
 
-const isTestEnv = _env.success && _env.data.NODE_ENV === 'test';
 if (!_env.success) {
 	console.error('Invalid environment variables');
-	if (!isTestEnv) {
-		process.exit(1);
-	}
 }
 
 export const env = _env.data;
