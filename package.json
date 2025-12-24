@@ -9,8 +9,8 @@
 		"dev": "tsx watch src/main.ts",
 		"build": "tsc",
 		"start": "node --enable-source-maps dist/main.js",
-		"format:check": "prettier -c \"src/**/*.ts\" \"__tests__/**/*.ts\"",
-		"format:fix": "prettier -w \"src/**/*.ts\" \"__tests__/**/*.ts\"",
+		"format": "prettier --write \"src/**/*.ts\" \"__tests__/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"__tests__/**/*.ts\"",
 		"lint:check": "eslint . --ext .ts",
 		"lint:fix": "eslint . --ext .ts --fix",
 		"prepare": "husky || true"

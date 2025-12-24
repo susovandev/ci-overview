@@ -1,4 +1,4 @@
-name: Code Formatting Check & Fix
+name: Code Formatting Check
 
 on:
   push:
@@ -12,14 +12,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: 'npm'
-      - name: Install Dependencies
+
+      - name: Install dependencies
         run: npm ci
-      - name: Check Formatting
+
+      - name: Check formatting
         run: npm run format:check
-      - name: Fix Formatting
-        if: ${{ failure() }}
-        run: npm run format:fix
