@@ -20,5 +20,7 @@ jobs:
           node-version: '22'
       - name: Install Dependencies
         run: npm ci
+      - name: Change Env to Test
+        run: echo "NODE_ENV=test" >> $GITHUB_ENV
       - name: Run Tests
         run: npm run test
